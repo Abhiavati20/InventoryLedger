@@ -1,12 +1,12 @@
-import { Button } from "@workspace/ui/components/button"
+"use client";
+import Banner from "@/components/Banner/Banner"
+import Features from "@/components/Features/Features";
 
 export default function Page() {
-  return (
-    <div className="flex items-center justify-center min-h-svh">
-      <div className="flex flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold">Hello World</h1>
-        <Button size="sm">Button</Button>
-      </div>
-    </div>
-  )
+    return (
+        <div className="w-11/12 mx-auto flex flex-col justify-center">
+            <Banner />  
+            <Features />
+        </div>
+    )
 }
