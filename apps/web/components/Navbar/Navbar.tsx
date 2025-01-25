@@ -12,7 +12,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
         >
-            <h1 className="text-xl">Inventory Ledger</h1>
+            <h1 className="text-2xl">Inventory Ledger</h1>
             <div className="flex gap-4 justify-center items-center">
                 <Button>Sign In</Button>
                 <ThemeButton />
