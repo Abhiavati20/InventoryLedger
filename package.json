@@ -1,5 +1,5 @@
 {
-  "name": "InventoryLedger",
+  "name": "inventoryledger",
   "private": true,
   "scripts": {
     "build": "turbo build",
