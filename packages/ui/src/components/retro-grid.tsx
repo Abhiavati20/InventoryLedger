@@ -1,4 +1,4 @@
-import { cn } from "../lib/utils.js";
+import { cn } from "@workspace/ui/lib/utils";
 
 interface RetroGridProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
