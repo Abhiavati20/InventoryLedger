@@ -2,7 +2,7 @@
 import { TextAnimate } from "@workspace/ui/components/text-animate"
 import {motion} from "motion/react"
 import { FeatureCard } from "./FeatureCard"
-import { BoxesIcon, ChartArea, LucideIndianRupee, LucideReceiptIndianRupee } from "lucide-react"
+import { BoxesIcon,  LucideIndianRupee, LucideReceiptIndianRupee } from "lucide-react"
 
 const FeatureItems = [
     {
@@ -30,7 +30,7 @@ const FeatureItems = [
 const Features = () => {
     return (
         <div
-            className="flex flex-col gap-2 w-full items-center justify-center p-5 "
+            className="flex flex-col gap-2 w-full items-center justify-center p-5 min-h-svh"
         >
             <TextAnimate duration={1.5} delay={0.5} animation="blurInUp" by="word" className="text-4xl my-8">
                 Your All-in-One Solution for Seamless Management

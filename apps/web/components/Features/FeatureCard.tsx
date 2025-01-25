@@ -11,7 +11,7 @@ export const FeatureCard = ({title,description,icon}:IFeatureCardProps) => {
     const { theme } = useTheme()
     return (
         <MagicCard
-            className="w-1/3 mx-2 text-wrap gap-5 cursor-pointer flex-col whitespace-nowrap shadow-2xl p-5"
+            className="w-1/3 mx-2 text-wrap gap-5 cursor-pointer flex-col whitespace-nowrap shadow-2xl py-10 px-5"
             gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
         >
             <div className="flex gap-2 items-center font-semibold">
