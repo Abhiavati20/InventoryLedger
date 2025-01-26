@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 
 import CredentialsProvider from "next-auth/providers/credentials";
-
+import { Prisma } from "@workspace/db";
 const handler = NextAuth({
     providers: [
         CredentialsProvider({
@@ -11,7 +11,10 @@ const handler = NextAuth({
                 password: {label: "Password", type:"password", placeholder: "Enter Your Password"}
             },
             async authorize(credentials, req) {
+                const user = await Prisma.user.findFirst();
+                console.log(user)
                 return null
+                
             }
         })
     ],

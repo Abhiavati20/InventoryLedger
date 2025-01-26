@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String  @id @unique @default(uuid())
+  email    String? @unique
+  phoneNo  String? @unique
+  password String
+  Shop     Shop[]
+}
+
+enum StoreCategory {
+  FoodProduct
+  NonFoodProduct
+}
+
+model Shop {
+  id            String          @id @unique @default(uuid())
+  name          String
+  address       String
+  registered_on DateTime?
+  ownerId       String
+  category      StoreCategory[]
+  owner         User            @relation(fields: [ownerId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  Product       Product[]
+}
+
+model Product {
+  id              String          @id @unique @default(uuid())
+  name            String
+  description     String
+  price           Int
+  mfg_date        DateTime?
+  exp_date        DateTime?
+  registered_date DateTime
+  shop_id         String
+  shop            Shop            @relation(fields: [shop_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  ProductOnBill   ProductOnBill[]
+}
+
+model Bill {
+  id            String          @id @unique @default(uuid())
+  created_at    DateTime
+  customer_name String
+  total_price   Int
+  discount      Int
+  ProductOnBill ProductOnBill[]
+}
+
+model ProductOnBill {
+  id         String  @id @unique @default(uuid())
+  product    Product @relation(fields: [product_id], references: [id])
+  product_id String
+  bill       Bill    @relation(fields: [bill_id], references: [id])
+  bill_id    String
+  quantity   Int
+}
